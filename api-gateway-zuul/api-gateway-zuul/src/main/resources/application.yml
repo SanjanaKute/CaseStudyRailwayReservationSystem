@@ -1,0 +1,30 @@
+server:
+  port: 8000
+
+spring:
+  application:
+     name: api-gateway-zuul
+    
+zuul:
+    routes:
+     admin-service:
+      url: http://localhost:8005
+     User-Services:
+      url: http://localhost:8001
+     payment-service:
+      url: http://localhost:8004 
+     ticket-reservation-service:
+      url: http://localhost:8003
+     train-service:
+      url: http://localhost:8002
+      
+      
+eureka:
+   client:
+    register-with-eureka: true
+    fetch-registry: true
+    
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    instance:
+    hostname: localhost
